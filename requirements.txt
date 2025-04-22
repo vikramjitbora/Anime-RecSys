@@ -4,3 +4,4 @@ google-cloud-storage
 pyyaml
 dotenv
 tensorflow
+wordcloud
