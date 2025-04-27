@@ -3,3 +3,4 @@ Anime_RecSys.egg-info
 .env
 logs
 artifacts/raw/*.csv
+*.h5
