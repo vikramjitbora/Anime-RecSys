@@ -4,4 +4,8 @@ google-cloud-storage
 pyyaml
 dotenv
 tensorflow
-wordcloud
+comet-ml
+dvc
+dvc-gs
+flask
+joblib
