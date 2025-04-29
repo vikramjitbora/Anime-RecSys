@@ -2,5 +2,6 @@ venv/
 Anime_RecSys.egg-info
 .env
 logs
-artifacts/raw/*.csv
+artifacts/raw/
+artifacts/processed/
 *.h5
