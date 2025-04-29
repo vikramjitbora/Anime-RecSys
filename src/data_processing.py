@@ -136,38 +136,7 @@ class DataProcessor:
 
         except Exception as e:
             raise CustomException("Failed to split data using train_test_split", sys)
-
-
-    # def split_data(self, test_size=1000, random_state=42):
-    #     """
-    #     Splits the dataset into training and testing sets.
-
-    #     Args:
-    #         test_size (int): Number of test samples.
-    #         random_state (int): Random seed for reproducibility.
-    #     """
-    #     try:
-    #         self.rating_df = self.rating_df.sample(frac=1, random_state=random_state).reset_index(drop=True)
-    #         X = self.rating_df[["user", "anime"]].values
-    #         y = self.rating_df["rating"]
-
-    #         train_indices = self.rating_df.shape[0] - test_size
-    #         X_train, X_test, y_train, y_test = (
-    #             X[:train_indices],
-    #             X[train_indices:],
-    #             y[:train_indices],
-    #             y[train_indices:]
-    #         )
-
-    #         self.X_train_array = [X_train[:, 0], X_train[:, 1]]
-    #         self.X_test_array = [X_test[:, 0], X_test[:, 1]]
-    #         self.y_train = y_train
-    #         self.y_test = y_test
-
-    #         logger.info("Data split into training and testing sets successfully")
-    #     except Exception as e:
-    #         raise CustomException("Failed to split data", sys)
-
+    
     def save_artifacts(self):
         """
         Saves encoded data and processed datasets to files for future use.
