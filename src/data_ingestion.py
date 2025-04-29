@@ -43,9 +43,9 @@ class DataIngestion:
                 blob.download_to_filename(file_path)
 
                 if file_name == 'animelist.csv':
-                    data = pd.read_csv(file_path, nrows=5000000)
+                    data = pd.read_csv(file_path, nrows=15000000)
                     data.to_csv(file_path, index=False)
-                    logger.info(f"Large file: {file_name} downloaded (5M rows only).")
+                    logger.info(f"Large file: {file_name} downloaded (15M rows only).")
                 else:
                     logger.info(f"File: {file_name} downloaded successfully.")
 
