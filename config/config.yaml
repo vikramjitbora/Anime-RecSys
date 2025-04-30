@@ -5,8 +5,19 @@ data_ingestion:
     - "anime_with_synopsis.csv"
     - "animelist.csv"
   
-  model:
-    embedding_size: 128
-    loss: binary_crossentropy
-    optimizer: Adam
-    metrics: ["mae","mse"]
+model:
+  embedding_size: 128
+  loss: binary_crossentropy
+  optimizer: Adam
+  metrics: ["mae","mse"]
+
+training:
+  batch_size: 10000
+  epochs: 20
+  learning_rate_schedule:
+    start_lr: 00001
+    max_lr: 0001
+    min_lr: 0.00005
+    rampup_epochs: 5
+    sustain_epochs: 0
+    exp_decay: 0.8
