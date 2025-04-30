@@ -27,7 +27,6 @@ class ModelTraining:
 
     def __init__(self, data_path, config_path):
         self.data_path = data_path
-        self.config_path = config_path
         self.train_config = read_yaml(config_path)["training"]
 
         self.experiment = comet_ml.Experiment(

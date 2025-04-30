@@ -12,8 +12,8 @@ load_dotenv()
 
 
 class DataIngestion:
-    def __init__(self,config):
-        self.config = config["data_ingestion"]
+    def __init__(self,config_path):
+        self.config = read_yaml(config_path)["data_ingestion"]
         self.bucket_name = self.config["bucket_name"]
         self.file_names = self.config["bucket_file_names"]
         self.credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
@@ -66,5 +66,5 @@ class DataIngestion:
 
             
 if __name__ == "__main__":
-    data_ingestion = DataIngestion(read_yaml(CONFIG_PATH))
+    data_ingestion = DataIngestion(config_path=CONFIG_PATH)
     data_ingestion.run()

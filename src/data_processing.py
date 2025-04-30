@@ -204,5 +204,5 @@ class DataProcessor:
 
 
 if __name__ == "__main__":
-    data_processor = DataProcessor(ANIMELIST_CSV, PROCESSED_DIR)
+    data_processor = DataProcessor(input_file=ANIMELIST_CSV, output_dir=PROCESSED_DIR)
     data_processor.run()

@@ -5,7 +5,7 @@ from src.data_processing import DataProcessor
 from src.model_training import ModelTraining
 
 if __name__=="__main__":
-    data_ingestion = DataIngestion(config=read_yaml(CONFIG_PATH))
+    data_ingestion = DataIngestion(config_path=CONFIG_PATH)
     data_ingestion.run()
 
     data_processor = DataProcessor(input_file=ANIMELIST_CSV, output_dir=PROCESSED_DIR)
