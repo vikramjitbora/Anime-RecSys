@@ -1,7 +1,10 @@
 venv/
-Anime_RecSys.egg-info
+Anime_RecSys.egg-info/
 .env
-logs
+logs/
 artifacts/raw/
 artifacts/processed/
+artifacts/model/
+artifacts/model_checkpoint/
+artifacts/weights/
 *.h5
