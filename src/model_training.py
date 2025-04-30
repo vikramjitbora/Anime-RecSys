@@ -93,9 +93,10 @@ class ModelTraining:
                 mode="min",
                 save_best_only=True
             )
-
+            
+            patience = self.train_config['patience']
             early_stopping = EarlyStopping(
-                patience=3,
+                patience=patience,
                 monitor="val_loss",
                 mode="min",
                 restore_best_weights=True

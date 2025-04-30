@@ -13,7 +13,8 @@ model:
 
 training:
   batch_size: 10000
-  epochs: 20
+  epochs: 50
+  patience: 5
   learning_rate_schedule:
     start_lr: 00001
     max_lr: 0001
