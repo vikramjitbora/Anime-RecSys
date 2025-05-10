@@ -33,11 +33,13 @@ class CustomException(Exception):
         Returns:
             str: A formatted string with file name, line number, and the error message.
         """
-        _, _, exc_tb = error_detail.exc_info()
-        file_name = exc_tb.tb_frame.f_code.co_filename
-        line_number = exc_tb.tb_lineno
-
-        return f"Error in {file_name}, line {line_number}: {error_message}"
+        try:
+            _, _, exc_tb = error_detail.exc_info()
+            file_name = exc_tb.tb_frame.f_code.co_filename
+            line_number = exc_tb.tb_lineno
+            return f"Error in {file_name}, line {line_number}: {error_message}"
+        except Exception as inner_e:
+            return f"Failed to get traceback info: {str(inner_e)} | Original error: {error_message}"
 
     def __str__(self):
         """

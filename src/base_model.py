@@ -5,6 +5,7 @@ from tensorflow.keras.layers import (
 from utils.common_functions import read_yaml
 from src.logger import get_logger
 from src.custom_exception import CustomException
+import sys
 
 logger = get_logger(__name__)
 
@@ -92,4 +93,4 @@ class BaseModel:
 
         except Exception as e:
             logger.error(f"Error occurred during model architecture creation: {e}")
-            raise CustomException("Failed to create model", e)
+            raise CustomException("Failed to create model", sys)

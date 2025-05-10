@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import sys
 from google.cloud import storage
 from src.logger import get_logger
 from src.custom_exception import CustomException
@@ -82,7 +83,7 @@ class DataIngestion:
 
         except Exception as e:
             logger.error(f"Failed to download file from bucket {self.bucket_name}")
-            raise CustomException("Data download failed", e)
+            raise CustomException("Data download failed", sys)
 
     def run(self):
         """

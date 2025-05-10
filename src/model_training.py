@@ -2,6 +2,7 @@ import os
 import joblib
 import numpy as np
 import comet_ml
+import sys
 from dotenv import load_dotenv
 from tensorflow.keras.callbacks import (
     ModelCheckpoint,
@@ -48,7 +49,7 @@ class ModelTraining:
             logger.info("Data loaded successfully for model training.")
             return X_train_array, X_test_array, y_train, y_test
         except Exception as e:
-            raise CustomException("Failed to load data", e)
+            raise CustomException("Failed to load data", sys)
 
     def train_model(self):
         """
@@ -127,13 +128,13 @@ class ModelTraining:
                     self.experiment.log_metric('val_loss', history.history["val_loss"][epoch], step=epoch)
 
             except Exception as e:
-                raise CustomException("Model training failed.", e)
+                raise CustomException("Model training failed.", sys)
 
             self.save_model_weights(model)
 
         except Exception as e:
             logger.error(str(e))
-            raise CustomException("Error during model training process", e)
+            raise CustomException("Error during model training process", sys)
 
     def extract_weights(self, layer_name, model):
         """Extracts and normalizes the embedding weights of a given model layer."""
@@ -167,7 +168,7 @@ class ModelTraining:
             logger.info("User and anime weights saved successfully.")
         except Exception as e:
             logger.error(str(e))
-            raise CustomException("Error during saving model and weights process", e)
+            raise CustomException("Error during saving model and weights process", sys)
 
 
 if __name__ == "__main__":
